@@ -2,7 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
-
 /.quarto/
 /_book/
 /_site/
+elsarticle-num.bst
+elsarticle.cls
+index.spl
+template_quarto.tex
