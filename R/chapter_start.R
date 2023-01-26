@@ -8,6 +8,7 @@ library(tidyverse)
 library(knitr)
 library(kableExtra)
 library(modelsummary)
+library(targets)
 options(dplyr.summarise.inform = FALSE)
 
 

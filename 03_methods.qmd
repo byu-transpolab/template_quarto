@@ -21,10 +21,7 @@ Discuss where you got your data, how you cleaned it, and any assumptions you mad
 [^03_methods-1]: You can often get a well-formatted citation for an R package by typing `citation(package = "packagename")` in the console.
 
 ```{r load_data}
-data("Car", package = "mlogit")
-car_mlogit <- Car %>%
-  mutate(choice = gsub("choice", "", choice)) %>%
-  dfidx( varying = 5:70, shape = "wide", choice = "choice", sep = "")
+tar_load(car_mlogit)
 ```
 
 Often there will be a table describing summary statistics of your dataset. @tbl-summary shows a nice table using the [`datasummary`](https://vincentarelbundock.github.io/modelsummary/articles/datasummary.html) functions in the `modelsummary` package [@modelsummary].
