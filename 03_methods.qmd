@@ -1,36 +1,15 @@
 # Methodology
 
-```{r setup, include = FALSE}
-# load R libraries here; the `include` flag in the chunk options above tells
-# whether to print the results or not. Usually you don't want to print the
-# library statements, or any code on the pdf.
-# Main Packages ========
-# I use these in every doc
-library(tidyverse)
-library(knitr)
-library(kableExtra)
-library(modelsummary)
-options(dplyr.summarise.inform = FALSE)
+```{r setup, file = "R/chapter_start.R", include = FALSE}
+# a number of commands need to run at the beginning of each chapter. This
+# includes loading libraries that I always use, as well as options for 
+# displaying numbers and text.
+```
+
+```{r setup2, include = FALSE}
 # Other packages ------
-# These sometimes get used, and sometimes don't.
+# These are packages that get used in this chapter but aren't part of the default set.
 library(mlogit)
-# Instructions and options =========
-# prints missing data in tables as blank space
-options(knitr.kable.NA = '') 
-# tells kableExtra to not load latex table packages in the chunk output
-options(kableExtra.latex.load_packages = FALSE) 
-# round and format numbers that get printed in the text of the article.
-inline_hook <- function(x) {
-  if (is.numeric(x)) {
-    format(x, digits = 3, big.mark = ",")
-  } else x
-}
-knitr::knit_hooks$set(inline = inline_hook)
-knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
-# options for latex-only output
-if(knitr::is_latex_output()) {
-  knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-} 
 ```
 
 In this chapter, you describe the approach you have taken on the problem. This usually involves a discussion about both the data you used and the models you applied.
@@ -72,5 +51,4 @@ $$ {#eq-mnl}
 
 Use [LaTeX mathematics](https://www.overleaf.com/learn/latex/mathematical_expressions). You'll want to number display equations so that you can refer to them later in the manuscript. Other simpler math can be described inline, like saying that $i, j \in J$. Details on using equations in Quarto are available [here](https://quarto.org/docs/visual-editor/technical.html#equations).
 
-You can also refer back to numbered equations, like the probability of an MNL 
-presented in @eq-mnl.
+You can also refer back to numbered equations, like the probability of an MNL presented in @eq-mnl.
