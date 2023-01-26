@@ -201,12 +201,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_results.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">04_results.html</span></a>
+  <a href="./04_results.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_conclusion.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">05_conclusion.html</span></a>
+  <a href="./05_conclusion.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -252,11 +252,8 @@ div.csl-indent {
 <section id="data" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="data"><span class="header-section-number">3.1</span> Data</h2>
 <p>Discuss where you got your data, how you cleaned it, and any assumptions you made. In this example, we get the <code>Car</code> dataset from the <code>mlogit</code> <span class="citation" data-cites="mlogit">(<a href="references.html#ref-mlogit" role="doc-biblioref">Croissant 2020</a>)</span> package<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and massage it to be in the format needed for <code>mlogit</code>.</p>
-<div class="cell" data-hash="03_methods_cache/html/load_data_238c3d57e04cf266a60819829dcafecc">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"Car"</span>, <span class="at">package =</span> <span class="st">"mlogit"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>car_mlogit <span class="ot">&lt;-</span> Car <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">choice =</span> <span class="fu">gsub</span>(<span class="st">"choice"</span>, <span class="st">""</span>, choice)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dfidx</span>( <span class="at">varying =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">70</span>, <span class="at">shape =</span> <span class="st">"wide"</span>, <span class="at">choice =</span> <span class="st">"choice"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="03_methods_cache/html/load_data_ec255ee1ce1594fe6bab6d570e31e39f">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_load</span>(car_mlogit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Often there will be a table describing summary statistics of your dataset. <a href="#tbl-summary">Table&nbsp;<span>3.1</span></a> shows a nice table using the <a href="https://vincentarelbundock.github.io/modelsummary/articles/datasummary.html"><code>datasummary</code></a> functions in the <code>modelsummary</code> package <span class="citation" data-cites="modelsummary">(<a href="references.html#ref-modelsummary" role="doc-biblioref">Arel-Bundock 2022</a>)</span>.</p>
 <div class="cell" data-hash="03_methods_cache/html/tbl-summary_9f13b530983afb35c9062e1818a1ddcb">
@@ -602,7 +599,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./04_results.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">04_results.html</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Applications</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
