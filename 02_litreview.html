@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Template Quarto Repository - References</title>
+<title>A Template Quarto Repository - 2&nbsp; Literature Review</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05_conclusion.html" rel="prev">
+<link href="./03_methods.html" rel="next">
+<link href="./01_introduction.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +89,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">References</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Literature Review</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -123,7 +124,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_litreview.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Literature Review</span></a>
+  <a href="./02_litreview.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Literature Review</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -143,7 +144,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
     </ul>
@@ -151,14 +152,20 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#citations-and-bibliographies" id="toc-citations-and-bibliographies" class="nav-link active" data-scroll-target="#citations-and-bibliographies"><span class="toc-section-number">2.1</span>  Citations and Bibliographies</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">References</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Literature Review</span></h1>
 </div>
 
 
@@ -173,24 +180,32 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-modelsummary" class="csl-entry" role="doc-biblioentry">
-Arel-Bundock, Vincent. 2022. <span>“<span class="nocase">modelsummary</span>: Data and Model Summaries in
-<span>R</span>.”</span> <em>Journal of Statistical Software</em> 103
-(1): 1–23. <a href="https://doi.org/10.18637/jss.v103.i01">https://doi.org/10.18637/jss.v103.i01</a>.
-</div>
+<p>The literature review is not simply a “review” or a list of what has been done in the past. This needs to a thoughtful synthesis that accomplishes two things:</p>
+<ul>
+<li>Shows that you understand the previous efforts that other people have made on this problem.</li>
+<li>Identifies the limitation or the gap in those previous efforts.</li>
+</ul>
+<p>You will have already mentioned this gap in the introduction, but here you need to build a solid case for why what you are doing is a meaningful contribution.</p>
+<p>Literature reviews do not have a specific guidelines for length or number of citations. It’s more about making a rhetorical argument; if it’s a new problem then the review can be shorter. But you’ll need to refer to previous attempts at the problem, the methods you are trying, and other things.</p>
+<section id="citations-and-bibliographies" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="citations-and-bibliographies"><span class="header-section-number">2.1</span> Citations and Bibliographies</h2>
+<p>Quarto has a robust method for generating citations. If you follow the <a href="https://quarto.org/docs/visual-editor/technical.html#citations-from-zotero">setup instructions</a>, then you can easily search your database from inside Rstudio after typing the <code>@</code> command. Keep your Zotero database up-to-date and correct (and share it with your coauthors!) to minimize the pain you will feel in writing articles.</p>
+<p>Note that there are two ways to make citations. Doing <code>@key</code> will give you a text citation, allowing you to refer to the author mid-sentence.</p>
+<blockquote class="blockquote">
+<p><span class="citation" data-cites="ben-akivaDiscreteChoiceAnalysis1985">Ben-Akiva and Lerman (<a href="references.html#ref-ben-akivaDiscreteChoiceAnalysis1985" role="doc-biblioref">1985</a>)</span> is the canonical reference in choice modeling for transportation.</p>
+</blockquote>
+<p>But if you put the citation in brackets like <code>[@citationkey]</code> you can make parenthetical citations. You can also give page numbers for quotes or specific findings this way.</p>
+<blockquote class="blockquote">
+<p>The difference in the choice model logsum can be used as a measure of consumer surplus, and therefore accessibility improvement <span class="citation" data-cites="ben-akivaDiscreteChoiceAnalysis1985">(<a href="references.html#ref-ben-akivaDiscreteChoiceAnalysis1985" role="doc-biblioref">Ben-Akiva and Lerman 1985, 301</a>)</span>.</p>
+</blockquote>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
 <div id="ref-ben-akivaDiscreteChoiceAnalysis1985" class="csl-entry" role="doc-biblioentry">
-Ben-Akiva, Moshe, and Steven R. Lerman. 1985. <em>Discrete Choice
-Analysis: Theory and Applications to Travel Demand</em>. MIT Press. <a href="https://www.jstor.org/stable/1391567?origin=crossref">https://www.jstor.org/stable/1391567?origin=crossref</a>.
-</div>
-<div id="ref-mlogit" class="csl-entry" role="doc-biblioentry">
-Croissant, Yves. 2020. <span>“Estimation of Random Utility Models in
-<span>R</span>: The <span class="nocase">mlogit</span> Package.”</span>
-<em>Journal of Statistical Software</em> 95 (11): 1–41. <a href="https://doi.org/10.18637/jss.v095.i11">https://doi.org/10.18637/jss.v095.i11</a>.
+Ben-Akiva, Moshe, and Steven R. Lerman. 1985. <em>Discrete Choice Analysis: Theory and Applications to Travel Demand</em>. MIT Press. <a href="https://www.jstor.org/stable/1391567?origin=crossref">https://www.jstor.org/stable/1391567?origin=crossref</a>.
 </div>
 </div>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -328,11 +343,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05_conclusion.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">05_conclusion.html</span></span>
+      <a href="./01_introduction.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./03_methods.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methodology</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

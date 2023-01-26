@@ -2,29 +2,43 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "template_quarto",
+    "title": "A Template Quarto Repository",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+    "text": "Preface\nThis is a template repository that I and my students can use to start projects that will implement the workflow presented in my lab documentation. It also serves as an instruction manual in this workflow, a template article, and a sandbox for me to practice and learn. I encourage students to use the Quarto Guide as their primary reference.\nThe document in this template renders to two1 outputs:\n\nA website\nAn Elsevier journal article\n\nTo render this document, use the command quarto render in your terminal pointed at the working directory. This will create a website available locally in a _book folder and a PDF of the article stored in that folder.\nTo render your website and push its content to a live website, use the command quarto publish gh-pages. Details of this process are available on the Quarto guide.\nYou can change the article to a different publisher by following the directions at the Quarto Journal Templates GitHub repository.\n\n\n\n\n\n\nI hope to make it possible to render the article to a BYU Engineering thesis as well. Give me a bit of time.↩︎"
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
+    "objectID": "01_introduction.html",
+    "href": "01_introduction.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "The introduction of your report is not simply an “introduction”, but rather a motivation of why your project matters. What is the cost of not solving this problem? What have been previous attempts to solve this problem? The why is more important than the what. Why is this article worthy of archiving?\nThe introduction to an article is usually three or so paragraphs long. First, state the overall context of the problem, with citations to basic statistics and previous major findings. Then, Discuss the specific context of your research; why have previous methods or research not addressed your specific issue? You also need to have citations here.\nIn the third paragraph, you can introduce the purpose of your research and the new method or data you bring to the issue. This paragraph often begins with a statement similar to “In this paper, we present…”\nAn outline of the article is then usually a good idea, even though the outline might change little from article to article. A Literature Review details prior research in this area, and discusses its strengths and limitations. A Methodology section identifies the data, models, and other elements you use, while a Results section presents the outcomes of your methodology with tables and figures and a comprehensive discussion of their meanings. Discussions, and Conclusions sections may present your interpretations of your findings for future research, policy, etc."
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+    "objectID": "02_litreview.html#citations-and-bibliographies",
+    "href": "02_litreview.html#citations-and-bibliographies",
+    "title": "2  Literature Review",
+    "section": "2.1 Citations and Bibliographies",
+    "text": "2.1 Citations and Bibliographies\nQuarto has a robust method for generating citations. If you follow the setup instructions, then you can easily search your database from inside Rstudio after typing the @ command. Keep your Zotero database up-to-date and correct (and share it with your coauthors!) to minimize the pain you will feel in writing articles.\nNote that there are two ways to make citations. Doing @key will give you a text citation, allowing you to refer to the author mid-sentence.\n\nBen-Akiva and Lerman (1985) is the canonical reference in choice modeling for transportation.\n\nBut if you put the citation in brackets like [@citationkey] you can make parenthetical citations. You can also give page numbers for quotes or specific findings this way.\n\nThe difference in the choice model logsum can be used as a measure of consumer surplus, and therefore accessibility improvement (Ben-Akiva and Lerman 1985, 301).\n\n\n\n\n\nBen-Akiva, Moshe, and Steven R. Lerman. 1985. Discrete Choice Analysis: Theory and Applications to Travel Demand. MIT Press. https://www.jstor.org/stable/1391567?origin=crossref."
+  },
+  {
+    "objectID": "03_methods.html#data",
+    "href": "03_methods.html#data",
+    "title": "3  Methodology",
+    "section": "3.1 Data",
+    "text": "3.1 Data\nDiscuss where you got your data, how you cleaned it, and any assumptions you made. In this example, we get the Car dataset from the mlogit (Croissant 2020) package1 and massage it to be in the format needed for mlogit.\n\ndata(\"Car\", package = \"mlogit\")\ncar_mlogit <- Car %>%\n  mutate(choice = gsub(\"choice\", \"\", choice)) %>%\n  dfidx( varying = 5:70, shape = \"wide\", choice = \"choice\", sep = \"\")\n\nOften there will be a table describing summary statistics of your dataset. Table 3.1 shows a nice table using the datasummary functions in the modelsummary package (Arel-Bundock 2022).\n\ndatasummary_balance(\n  ~type, \n  data = car_mlogit %>% \n    select(type, fuel, price, range, size), \n  dinm = FALSE\n) %>%\n  kableExtra::kable_styling(latex_options=\"scale_down\")\n\n\n\nTable 3.1:  Descriptive Statistics of Dataset \n \n\n\nregcar (N=10930)\nsportuv (N=1048)\nsportcar (N=880)\nstwagon (N=4446)\ntruck (N=5628)\nvan (N=4992)\n\n  \n      \n       \n    Mean \n    Std. Dev. \n    Mean \n    Std. Dev. \n    Mean \n    Std. Dev. \n    Mean \n    Std. Dev. \n    Mean \n    Std. Dev. \n    Mean \n    Std. Dev. \n  \n \n\n  \n    price \n     \n    4.2 \n    1.9 \n    4.7 \n    1.9 \n    4.8 \n    2.2 \n    4.1 \n    1.9 \n    4.2 \n    2.0 \n    4.2 \n    1.9 \n  \n  \n    range \n     \n    237.2 \n    94.5 \n    241.6 \n    94.7 \n    233.6 \n    96.7 \n    238.7 \n    94.3 \n    238.2 \n    93.1 \n    236.8 \n    94.7 \n  \n  \n    size \n     \n    2.4 \n    0.8 \n    2.1 \n    1.0 \n    1.4 \n    1.0 \n    2.3 \n    0.8 \n    2.4 \n    0.8 \n    2.5 \n    0.7 \n  \n  \n     \n     \n    N \n    Pct. \n    N \n    Pct. \n    N \n    Pct. \n    N \n    Pct. \n    N \n    Pct. \n    N \n    Pct. \n  \n  \n    fuel \n    gasoline \n    2704 \n    24.7 \n    280 \n    26.7 \n    218 \n    24.8 \n    1096 \n    24.7 \n    1413 \n    25.1 \n    1247 \n    25.0 \n  \n  \n     \n    methanol \n    2729 \n    25.0 \n    246 \n    23.5 \n    225 \n    25.6 \n    1091 \n    24.5 \n    1445 \n    25.7 \n    1216 \n    24.4 \n  \n  \n     \n    cng \n    2767 \n    25.3 \n    260 \n    24.8 \n    238 \n    27.0 \n    1109 \n    24.9 \n    1360 \n    24.2 \n    1282 \n    25.7 \n  \n  \n     \n    electric \n    2730 \n    25.0 \n    262 \n    25.0 \n    199 \n    22.6 \n    1150 \n    25.9 \n    1410 \n    25.1 \n    1247 \n    25.0"
+  },
+  {
+    "objectID": "03_methods.html#models",
+    "href": "03_methods.html#models",
+    "title": "3  Methodology",
+    "section": "3.2 Models",
+    "text": "3.2 Models\nIf your work is mostly a new model, you probably will have introduced some details in the literature review. But this is where you describe the mathematical construction of your model, the variables it uses, and other things. Some methods are so common (linear regression) that it is unnecessary to explore them in detail. But others will need to be described, often with mathematics. For example, the probability of an alternative \\(i\\) in the a multinomial logit model is\n\\[\nP_i(X_{in}) = \\frac{e^{X_{in}\\beta_i}}{\\sum_{j \\in J}e^{X_{jn}\\beta_j}}\n\\tag{3.1}\\]\nUse LaTeX mathematics. You’ll want to number display equations so that you can refer to them later in the manuscript. Other simpler math can be described inline, like saying that \\(i, j \\in J\\). Details on using equations in Quarto are available here.\nYou can also refer back to numbered equations, like the probability of an MNL presented in Equation 3.1.\n\n\n\n\nArel-Bundock, Vincent. 2022. “modelsummary: Data and Model Summaries in R.” Journal of Statistical Software 103 (1): 1–23. https://doi.org/10.18637/jss.v103.i01.\n\n\nCroissant, Yves. 2020. “Estimation of Random Utility Models in R: The mlogit Package.” Journal of Statistical Software 95 (11): 1–41. https://doi.org/10.18637/jss.v095.i11."
   },
   {
     "objectID": "references.html",
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "Arel-Bundock, Vincent. 2022. “modelsummary: Data and Model Summaries in\nR.” Journal of Statistical Software 103\n(1): 1–23. https://doi.org/10.18637/jss.v103.i01.\n\n\nBen-Akiva, Moshe, and Steven R. Lerman. 1985. Discrete Choice\nAnalysis: Theory and Applications to Travel Demand. MIT Press. https://www.jstor.org/stable/1391567?origin=crossref.\n\n\nCroissant, Yves. 2020. “Estimation of Random Utility Models in\nR: The mlogit Package.”\nJournal of Statistical Software 95 (11): 1–41. https://doi.org/10.18637/jss.v095.i11."
   }
 ]
