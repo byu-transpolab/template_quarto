@@ -1,4 +1,15 @@
 # Results
+```{r setup, file = "R/chapter_start.R", include = FALSE}
+# a number of commands need to run at the beginning of each chapter. This
+# includes loading libraries that I always use, as well as options for 
+# displaying numbers and text.
+```
+
+```{r setup2}
+# other setups for local libraries go here
+library(wesanderson)
+```
+
 In this section, you present the results of the methods that you outlined in the previous section.
 This may include estimated models, summary analyses, and visualizations with accompanying descriptive analysis.
 

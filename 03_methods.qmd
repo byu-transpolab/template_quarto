@@ -1,5 +1,11 @@
 # Methodology
 
+```{r setup, file = "R/chapter_start.R", include = FALSE}
+# a number of commands need to run at the beginning of each chapter. This
+# includes loading libraries that I always use, as well as options for 
+# displaying numbers and text.
+```
+
 In this section, you describe your approach to the problem that you are addressing. Often, this section will contain more citations to the literature, particularly if you are using a model that someone else has developed, or a dataset that someone else has collected. In general, you should describe the process in sufficient detail that someone else could replicate your work if they had access to the same data and code.
 
 This is the section with the most mathematics. Use numbered equation environments, and define all terms. For example, the standard linear model is described as 

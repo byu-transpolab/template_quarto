@@ -1378,6 +1378,14 @@
         "withr"
       ]
     },
+    "wesanderson": {
+      "Package": "wesanderson",
+      "Version": "0.3.7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "f0d5ebcc72b5d6d2f338be8d80d39004",
+      "Requirements": []
+    },
     "withr": {
       "Package": "withr",
       "Version": "3.0.2",
