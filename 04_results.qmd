@@ -1,43 +1,49 @@
-## Applications
+# Results
+In this section, you present the results of the methods that you outlined in the previous section.
+This may include estimated models, summary analyses, and visualizations with accompanying descriptive analysis.
 
-```{r setup, file = "R/chapter_start.R", include = FALSE}
-# a number of commands need to run at the beginning of each chapter. This
-# includes loading libraries that I always use, as well as options for 
-# displaying numbers and text.
+ For example @fig-reg shows the 
+data from a regression model like the one described in @eq-reg. Axes should be clearly labeled with any relevant units. I prefer the `theme_bw` function from the `ggplot2` package to make my figures look nice, with colors
+for continuous data from the [`viridis`](https://sjmgarnier.github.io/viridis/) package and colors for categorical data from the [`wesanderson`](https://github.com/karthik/wesanderson) package. Figure captions are sentences that describe the figure. They generally come below the figure, but Quarto or LaTeX will handle this for you.
+
+```{r}
+#| label: fig-reg
+#| fig-cap: Relationship between engine displacement and vehicle fuel efficiency.
+ggplot(data = mpg, aes(x = displ, y = hwy, color = class)) + 
+  geom_point() + theme_bw() + 
+  stat_smooth(method = "lm", color = "black", size = 0.5) +
+  scale_color_manual("Class", values = wes_palette("Zissou1", 7, type = "continuous")) +
+  xlab("Engine Displacement (liters)") + ylab("Highway Miles per Gallon (mpg)")
 ```
 
-```{r setup2, include = FALSE}
-# Other packages ------
-# These are packages that get used in this chapter but aren't part of the default set.
-library(mlogit)
-```
+@tbl-reg shows the estimated regression coefficients for the model described in @eq-reg.
 
-This section might be called "Results" instead of "Applications," depending on what it is that you are working on. But you'll probably say something like "The initial model estimation results are given in @tbl-estimationresults" That table is created with the `modelsummary()` package and function.
-
-```{r estimation}
-tar_load(models)
-```
-
-```{r estimation-results}
-#| label: tbl-estimationresults
-#| tbl-cap: Model Summary Results
-modelsummary(models, estimate = "{estimate} ({statistic})")
-```
-
-Sometimes, it is nice to put the models or your other results into a figure instead
-of a table. Have a look at @fig-modelplot. Note that your figures might look better
-in pdf if you use the `tikz` rendering device.
-
-```{r modelplot}
-#| label: fig-modelplot
-#| fig-cap: Estimated model coefficients and confidence intervals.
-#| 
-modelplot(models) +
-  xlab("Coefficient estimates")
+```{r}
+#| label: tbl-reg
+#| tbl-cap: Regression Estimates
+lm <- lm(hwy ~ displ + class, data = mpg)
+coefmap <- c(
+    "(Intercept)" = "Intercept",
+    "displ" = "Engine Displacement [liters]",
+    "classcompact" = "Class: Compact",
+    "classmidsize" = "Class: Midsize",
+    "classminivan" = "Class: Minivan",
+    "classsubcompact" = "Class: Subcompact",
+    "classsuv" = "Class: SUV",
+    "classpickup" = "Class: Pickup"
+)
+modelsummary(lm, coef_rename = coefmap)
 ```
 
 
-With those results presented, you can go into a discussion of what they mean. first, discuss the actual results that are shown in the table, and then any interesting or unintuitive observations.
+## Targets
+
+If you use the [`targets`](https://docs.ropensci.org/targets/) package, you can use the `tar_make()` function to run your analysis and save the results. This is a great way to make sure that your analysis is reproducible. You can also use `tar_read()` to read in the results of your targets, and then build them into your report.
+
+```{r, echo = TRUE, eval = FALSE}
+tar_load(analysis_data)
+head(analysis_data)
+```
 
 
 ## Additional Analysis
@@ -48,4 +54,4 @@ Usually, it is good to use your model for something.
 -   Statistical validation effort
 -   Equity or impact analysis
 
-If the analysis is substantial, it might become its own top-level section.
+If the additional analysis is substantial, it might become its own top-level section.

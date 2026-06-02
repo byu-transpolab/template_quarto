@@ -6,7 +6,6 @@
 # I use these in every doc
 library(tidyverse)
 library(knitr)
-library(kableExtra)
 library(modelsummary)
 library(targets)
 options(dplyr.summarise.inform = FALSE)
@@ -17,8 +16,6 @@ options(dplyr.summarise.inform = FALSE)
 options(modelsummary_format_numeric_latex = "plain")
 # prints missing data in tables as blank space
 options(knitr.kable.NA = '') 
-# tells kableExtra to not load latex table packages in the chunk output
-options(kableExtra.latex.load_packages = FALSE) 
 # round and format numbers that get printed in the text of the article.
 inline_hook <- function(x) {
   if (is.numeric(x)) {

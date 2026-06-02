@@ -1,35 +1,39 @@
-#' Make the car_mlogit estimation data
+#' Make the example analysis data
 #' 
 make_data <- function(){
-  # load the car data from the mlogit package
-  data("Car", package = "mlogit")
-  
-  # transform the data into an mlogit dataframe 
-  car_mlogit <- Car |>
-    mutate(choice = gsub("choice", "", choice)) |>
-    dfidx( varying = 5:70, shape = "wide", choice = "choice", sep = "")
-  
-  # return data from function
-  car_mlogit
+  mtcars |>
+    as_tibble(rownames = "vehicle") |>
+    mutate(
+      transmission = factor(am, labels = c("Automatic", "Manual")),
+      cylinders = factor(cyl)
+    ) |>
+    select(
+      vehicle,
+      mpg,
+      weight = wt,
+      horsepower = hp,
+      displacement = disp,
+      transmission,
+      cylinders
+    )
 }
 
 
 #' Estimate models
 #' 
-#' @param car_mlogit The mlogit data frame returned by make_data
+#' @param analysis_data The data frame returned by make_data
 #' 
-estimate_models <- function(car_mlogit){
+estimate_models <- function(analysis_data){
   
-  # first model: type and price
-  model1 <- mlogit(choice ~ type + price | -1, data = car_mlogit)
+  # first model: fuel economy explained by vehicle weight and horsepower
+  model1 <- lm(mpg ~ weight + horsepower, data = analysis_data)
   
-  # second model: add range of vehicle
-  model2 <- update(model1, .~. + range)
+  # second model: add transmission type
+  model2 <- update(model1, . ~ . + transmission)
   
   # put models in a list and return
   models <- list("Model 1" = model1, "Model 2" = model2)
   models
   
 }
-
 

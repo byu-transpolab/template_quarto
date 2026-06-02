@@ -5,22 +5,17 @@ The introduction of your report is not simply an "introduction", but rather a
 this problem? What have been previous attempts to solve this problem? The *why*
 is more important than the *what*. Why is this article worthy of archiving?
 
-The introduction to an article is usually three or so paragraphs long. First,
-state the overall context of the problem, with citations to basic statistics and
-previous major findings. Then, Discuss the specific context of your research;
-why have previous methods or research not addressed your specific issue? You
-also need to have citations here.
+Effective introductions are often four paragraphs:
 
-In the third paragraph, you can introduce the purpose of your research and the
-new method or data you bring to the issue. This paragraph often begins with a
-statement similar to "In this paper, we present..." 
+1. Big problem (motivation)
+    *Understanding how individuals make travel decisions is essential for addressing pressing transportation challenges such as congestion, emissions, and inequitable access to opportunities.*
+2. Narrow problem and limitations of prior work (research gap)
+    *Although previous studies have improved our understanding of travel behavior, most rely on cross-sectional data and therefore provide limited insight into how individuals adapt their travel choices over time.*
+3. Current study and contribution (what this paper does)
+    *This study addresses these limitations by leveraging longitudinal travel survey data to examine how changes in household circumstances influence mode choice behavior.*
+4. Paper outline (roadmap)
+    *The remainder of this paper reviews the relevant literature, describes the data and methods, presents the empirical results, and discusses implications for transportation planning and policy.*
 
-An outline of the article is then usually a good idea, even though the outline
-might change little from article to article. A Literature Review details prior
-research in this area, and discusses its strengths and limitations. A
-Methodology section identifies the data, models, and other elements you use,
-while a Results section presents the outcomes of your methodology with tables
-and figures and a comprehensive discussion of their meanings. Discussions, and
-Conclusions sections may present your interpretations of your findings for future
-research, policy, etc.
+
+Sometimes points 1 or 2 will be more than one strict paragraph. 
 

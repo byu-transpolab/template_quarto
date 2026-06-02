@@ -9,7 +9,7 @@ library(targets)
 
 # Set target options:
 tar_option_set(
-  packages = c("tidyverse", "mlogit", "modelsummary"), # packages that your targets need to run
+  packages = c("tidyverse"), # packages that your targets need to run
   format = "rds" # default storage format
   # Set other options as needed.
 )
@@ -27,11 +27,11 @@ for (file in list.files("R", full.names = TRUE)) source(file)
 # Replace the target list below with your own:
 list(
   tar_target(
-    name = car_mlogit,
+    name = analysis_data,
     command = make_data()
   ),
   tar_target(
     name = models,
-    command = estimate_models(car_mlogit)
+    command = estimate_models(analysis_data)
   )
 )
