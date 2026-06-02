@@ -49,10 +49,13 @@ format:
     theme: cosmo
   elsevier-pdf:
     cite-method: citeproc
-    csl: apa.csl
     include-in-header: 
       - packages.tex
+    crossref: 
+      chapters: false
     journal:
+      formatting: review
+      model: 3p
       name: Transportation Research Part A
     keep-tex: true
     top-level-division: section
