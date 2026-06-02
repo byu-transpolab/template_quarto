@@ -51,7 +51,7 @@ modelsummary(lm, coef_rename = coefmap)
 
 If you use the [`targets`](https://docs.ropensci.org/targets/) package, you can use the `tar_make()` function to run your analysis and save the results. This is a great way to make sure that your analysis is reproducible. You can also use `tar_read()` to read in the results of your targets, and then build them into your report.
 
-```{r, echo = TRUE, eval = FALSE}
+```{r, eval = FALSE}
 tar_load(analysis_data)
 head(analysis_data)
 ```
