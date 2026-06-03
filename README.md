@@ -12,6 +12,24 @@ The example analysis is intentionally lightweight. It uses built-in example data
 
 Open the project from `template_quarto.Rproj`, or start R from this repository's root directory.
 
+## First commit after copying the template
+
+Before making the first commit in a new project, replace the template names with project-specific names:
+
+1. Rename `template_quarto.Rproj` to match the project, such as `my_project.Rproj`, then reopen the project from the renamed file.
+2. Update the paper title in `_quarto.yml` under `book: title`.
+3. Set the rendered output file name in `_quarto.yml` under `book: output-file`. If `output-file` is not set, Quarto derives the PDF name from the title.
+
+For example:
+
+```yaml
+book:
+  title: "Accessibility Impacts of Example Policy"
+  output-file: "accessibility-policy-paper"
+```
+
+After those changes, make the first project commit. This keeps the repository, RStudio project file, manuscript title, and rendered PDF name aligned from the beginning.
+
 Restore the package environment:
 
 ```r
@@ -123,10 +141,11 @@ Each analysis chapter begins with a setup chunk that uses `R/chapter_start.R`. T
 
 ## Suggested workflow
 
-1. Restore packages with `renv::restore()`.
-2. Replace the example data and model functions in `R/data_and_models.R`.
-3. Update `_targets.R` so the pipeline matches your analysis.
-4. Run `targets::tar_make()` until the pipeline completes.
-5. Write and revise the `.qmd` manuscript chapters.
-6. Render with `quarto render`.
-7. If package requirements changed, run `renv::snapshot()` and commit the updated `renv.lock`.
+1. Rename the `.Rproj` file, update `book: title`, and set `book: output-file` before the first commit.
+2. Restore packages with `renv::restore()`.
+3. Replace the example data and model functions in `R/data_and_models.R`.
+4. Update `_targets.R` so the pipeline matches your analysis.
+5. Run `targets::tar_make()` until the pipeline completes.
+6. Write and revise the `.qmd` manuscript chapters.
+7. Render with `quarto render`.
+8. If package requirements changed, run `renv::snapshot()` and commit the updated `renv.lock`.
