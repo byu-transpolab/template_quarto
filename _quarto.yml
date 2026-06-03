@@ -49,6 +49,7 @@ format:
     theme: cosmo
   elsevier-pdf:
     cite-method: citeproc
+    pdf-engine: pdflatex
     include-in-header: 
       - packages.tex
     crossref: 
@@ -60,4 +61,3 @@ format:
     keep-tex: true
     top-level-division: section
     toc: false
-
