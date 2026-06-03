@@ -4,7 +4,7 @@ This repository is a starter template for a reproducible paper or technical repo
 
 - `renv` manages the R package environment.
 - `targets` runs the analysis pipeline.
-- Quarto renders the manuscript as a website and an Elsevier-style PDF.
+- Quarto renders the manuscript as a website, an Elsevier-style PDF, and a BYU Engineering thesis PDF.
 
 The example analysis is intentionally lightweight. It uses built-in example data, `tidyverse` data preparation, base R `lm()` models, and `modelsummary` tables and figures. Replace the example data and models with the analysis for your own project.
 
@@ -52,7 +52,7 @@ The rendered website and PDF are written to `_book/`. Generated outputs such as 
 
 ## Project structure
 
-- `_quarto.yml` configures the Quarto book, chapter order, bibliography, and output formats.
+- `_quarto.yml` configures the Quarto book, chapter order, bibliography, thesis metadata, and output formats.
 - `_targets.R` defines the reproducible analysis pipeline.
 - `R/` contains project functions used by the pipeline and manuscript.
 - `*.qmd` files are the manuscript chapters.
@@ -119,10 +119,25 @@ The manuscript is configured as a Quarto book in `_quarto.yml`. The chapter orde
 6. `05_conclusion.qmd`
 7. `references.qmd`
 
-The template currently renders to two formats:
+The template currently renders to three formats:
 
 - `html`, using the `cosmo` theme.
 - `elsevier-pdf`, using the bundled Elsevier Quarto extension and `packages.tex`.
+- `byu-thesis-pdf`, using the bundled BYU Engineering thesis extension and `packages.tex`.
+
+### BYU thesis PDF
+
+Use the BYU thesis PDF when preparing a thesis or dissertation that needs the BYU Engineering front matter and page layout. The format is configured in `_quarto.yml` under `format: byu-thesis-pdf`.
+
+Before rendering the thesis PDF, update the thesis-specific metadata near the top of `_quarto.yml`:
+
+- `book: title`, `book: author`, and `book: abstract` for the main manuscript metadata.
+- `student`, `department`, `chair`, and `committee` for the BYU title page.
+- `customtitle` for the College of Engineering title page.
+- `keywords` and `acknowledgments` for the front matter.
+- `format: byu-thesis-pdf: layout` for the thesis layout options, such as `fancy` or `simple`, `oneside` or `twoside`, and `masters` or `phd`.
+
+The BYU thesis extension is stored in `_extensions/byu-transpolab/byu-thesis/`. Keep that directory in the repository so the format is available when another user clones the project.
 
 Render all configured outputs with:
 
@@ -135,6 +150,7 @@ Render a single format with:
 ```sh
 quarto render --to html
 quarto render --to elsevier-pdf
+quarto render --to byu-thesis-pdf
 ```
 
 Each analysis chapter begins with a setup chunk that uses `R/chapter_start.R`. That file loads the common packages and sets formatting options for tables, inline numbers, and PDF output.
