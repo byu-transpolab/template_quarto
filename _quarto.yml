@@ -55,6 +55,7 @@ format:
     crossref: 
       chapters: false
     journal:
+      cite-style: numbername
       formatting: review
       model: 3p
       name: Transportation Research Part A
