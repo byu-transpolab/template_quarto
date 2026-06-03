@@ -22,6 +22,10 @@ If the data are public and you can fit them in the repository, put them there.
 
 Figures and tables should be numbered and referenced in the text. Table captions are titles, and not sentences like figures. Captions are placed above the table, but Quarto or LaTeX will handle this for you. Tables generally have only horizontal lines, and only the lines that are critical to separate blocks of information. I like using the [`modelsummary`](https://modelsummary.com) package to make tables. Use publication-ready names instead of the variable names in your table.
 
+```{=latex}
+\begin{landscape}
+```
+
 ```{r}
 #| label: tbl-sum
 #| tbl-cap: Data Summary by Cylinders
@@ -29,4 +33,8 @@ datasummary_balance(~ Cylinders, dinm = FALSE,
   data = mpg |> 
     select("Miles per Gallon" = hwy, "Engine Displacmeent (liters)" = displ, "Cylinders" = cyl, "Class" = class) 
 )
+```
+
+```{=latex}
+\end{landscape}
 ```
